@@ -1,0 +1,47 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: var(--slack-color);
+  color: #fff;
+}
+
+.header__left {
+  flex: 0.3;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header__search {
+  flex: 0.4;
+  display: flex;
+  background-color: #421f44;
+  text-align: center;
+  padding: 0 15px;
+  color: #808080;
+  border: 1px solid #808080;
+  border-radius: 6px;
+}
+
+.header__search-input {
+  flex: 1;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: inherit;
+  min-width: 35w;
+  margin-left: 10px;
+}
+
+.header__right {
+  flex: 0.3;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.header__icon--left {
+  margin-left: 30px;
+}
