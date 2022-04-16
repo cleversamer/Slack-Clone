@@ -1,0 +1,9 @@
+.app {
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.app__body {
+  display: flex;
+}
