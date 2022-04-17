@@ -1,0 +1,31 @@
+.chat {
+  width: calc(100vw - 260px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-bottom: 150px;
+}
+
+.chat__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.chat__channel-name {
+  display: flex;
+  align-items: center;
+  text-transform: lowercase;
+}
+
+.chat__header-icon {
+  margin-left: 5px;
+  font-size: 18px !important;
+}
+
+.chat__header-right {
+  display: flex;
+  align-items: center;
+}
