@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   FiberManualRecord,
   Create,
@@ -19,8 +20,10 @@ import { createChannel, deleteChannel, channelsQuery } from "../../firebase";
 import "./index.css";
 
 const Sidebar = () => {
+  const history = useNavigate();
   const [channels, setChannels] = useState([]);
   const [showChannels, setShowChannels] = useState(false);
+  const [showLessNavs, setShowLessNavs] = useState(false);
 
   useEffect(() => {
     onSnapshot(channelsQuery, (snapshot) => {
@@ -50,15 +53,25 @@ const Sidebar = () => {
 
         <SidebarOption Icon={Drafts} title="Saved items" />
 
-        <SidebarOption Icon={BookmarkBorder} title="Channel browser" />
+        {!showLessNavs && (
+          <SidebarOption Icon={BookmarkBorder} title="Channel browser" />
+        )}
 
-        <SidebarOption Icon={PeopleAlt} title="People & user groups" />
+        {!showLessNavs && (
+          <SidebarOption Icon={PeopleAlt} title="People & user groups" />
+        )}
 
-        <SidebarOption Icon={Apps} title="Apps" />
+        {!showLessNavs && <SidebarOption Icon={Apps} title="Apps" />}
 
-        <SidebarOption Icon={FileCopy} title="File browser" />
+        {!showLessNavs && (
+          <SidebarOption Icon={FileCopy} title="File browser" />
+        )}
 
-        <SidebarOption Icon={ExpandLess} title="Show less" />
+        <SidebarOption
+          Icon={showLessNavs ? ExpandMore : ExpandLess}
+          title={showLessNavs ? "Show more" : "Show less"}
+          onClick={() => setShowLessNavs(!showLessNavs)}
+        />
       </section>
 
       <hr />
@@ -92,8 +105,10 @@ const Sidebar = () => {
           channels.map((channel) => (
             <SidebarOption
               key={channel.id}
+              id={channel.id}
               title={channel.name}
               onDelete={() => deleteChannel(channel.id)}
+              onClick={() => history(`/room/${channel.id}`)}
             />
           ))}
       </section>

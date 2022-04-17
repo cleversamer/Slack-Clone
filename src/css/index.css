@@ -14,3 +14,11 @@ html {
 .clickable {
   cursor: pointer;
 }
+
+.no-button {
+  border: none;
+  outline: none;
+  background: none;
+  color: inherit;
+  padding: 0;
+}
