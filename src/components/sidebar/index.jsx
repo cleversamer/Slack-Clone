@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { selectChannels, setCurrentChannel } from "../../store/channels";
+import { selectUser } from "../../store/user";
 import {
   FiberManualRecord,
   Create,
@@ -24,6 +25,7 @@ import "./index.css";
 const Sidebar = () => {
   const history = useNavigate();
   const dispatch = useDispatch();
+  const user = useSelector(selectUser);
   const channels = useSelector(selectChannels);
   const [showChannels, setShowChannels] = useState(false);
   const [showLessNavs, setShowLessNavs] = useState(true);
@@ -56,10 +58,12 @@ const Sidebar = () => {
         <div className="sidebar__header-info">
           <h2 className="sidebar__heading">Web Developers</h2>
 
-          <h3 className="sidebar__user">
-            <FiberManualRecord className="sidebar__icon" />
-            Samer A.
-          </h3>
+          {user && (
+            <h3 className="sidebar__user">
+              <FiberManualRecord className="sidebar__icon" />
+              {user?.displayName || "Unknown user"}
+            </h3>
+          )}
         </div>
 
         <Create className="sidebar__icon clickable" />
@@ -112,7 +116,7 @@ const Sidebar = () => {
 
         <hr />
 
-        {showChannels && (
+        {user && showChannels && (
           <SidebarOption
             Icon={Add}
             title="Add channel"

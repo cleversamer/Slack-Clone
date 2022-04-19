@@ -1,0 +1,38 @@
+.login {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding-bottom: 120px;
+  text-align: center;
+}
+
+.login__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.login__logo {
+  object-fit: contain;
+  height: 180px;
+}
+
+.login__heading {
+  margin-bottom: 5px;
+}
+
+.login__author {
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+}
+
+.login__link {
+  color: #ff6347;
+}
+
+.login__button {
+  text-transform: capitalize !important;
+  background-color: #f00 !important;
+  color: #fff;
+}

@@ -48,3 +48,7 @@
 .header__icon--left {
   margin-left: 30px;
 }
+
+.header__button {
+  text-transform: capitalize !important;
+}
