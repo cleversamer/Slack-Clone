@@ -23,7 +23,7 @@ const SidebarOption = ({ id, Icon, title, onClick, onDelete }) => {
             <span className="sidebar__option-hash">#</span> {title}
           </h4>
 
-          {id !== "iYtP1uYcGvSns7g7CosD" && (
+          {id !== "rmlqG5H1dner9byJfY6u" && (
             <IconButton
               className="sidebar__option-delete"
               onClick={() => onDelete()}

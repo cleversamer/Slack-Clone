@@ -1,15 +1,4 @@
-import { initializeApp } from "firebase/app";
-import {
-  getFirestore,
-  collection,
-  query,
-  orderBy,
-  doc,
-  addDoc,
-  deleteDoc,
-  serverTimestamp,
-} from "firebase/firestore";
-import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import { initializeApp, auth as firebaseAuth } from "firebase";
 
 const config = {
   apiKey: process.env["REACT_APP_FIREBASE_API_KEY"],
@@ -20,26 +9,14 @@ const config = {
   appId: "1:419362939894:web:84d10b5e875e77fff01dd7",
 };
 
-initializeApp(config);
+const app = initializeApp(config);
 
-const db = getFirestore();
+const db = app.firestore();
 
-export const auth = getAuth();
+const auth = firebaseAuth();
 
-export const provider = new GoogleAuthProvider();
+const provider = new firebaseAuth.GoogleAuthProvider();
 
-const channelsRef = collection(db, "channels");
+export { auth, provider };
 
-export const channelsQuery = query(channelsRef, orderBy("timestamp", "asc"));
-
-export const createChannel = (name) => {
-  addDoc(channelsRef, {
-    name,
-    timestamp: serverTimestamp(),
-  });
-};
-
-export const deleteChannel = (channelId) => {
-  const channelRef = doc(db, "channels", channelId);
-  deleteDoc(channelRef);
-};
+export default db;

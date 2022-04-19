@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { onSnapshot } from "firebase/firestore";
-import { channelsQuery } from "./firebase";
+import db from "./firebase";
 import { setChannels } from "./store/channels";
 import Header from "./components/header";
 import Sidebar from "./components/sidebar";
@@ -15,10 +14,15 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    onSnapshot(channelsQuery, (snapshot) => {
-      const data = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-      dispatch(setChannels(data));
-    });
+    db.collection("channels")
+      .orderBy("timestamp", "asc")
+      .onSnapshot((snapshot) => {
+        const data = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        dispatch(setChannels(data));
+      });
   }, []);
 
   return (

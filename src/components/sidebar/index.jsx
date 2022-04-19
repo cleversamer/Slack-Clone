@@ -17,7 +17,8 @@ import {
   Add,
 } from "@mui/icons-material";
 import SidebarOption from "./SidebarOption";
-import { createChannel, deleteChannel } from "../../firebase";
+import { firestore } from "firebase";
+import db from "../../firebase";
 import "./index.css";
 
 const Sidebar = () => {
@@ -25,19 +26,25 @@ const Sidebar = () => {
   const dispatch = useDispatch();
   const channels = useSelector(selectChannels);
   const [showChannels, setShowChannels] = useState(false);
-  const [showLessNavs, setShowLessNavs] = useState(false);
+  const [showLessNavs, setShowLessNavs] = useState(true);
 
-  const handleChatClick = (channel) => {
+  const handleChannelClick = (channel) => {
     dispatch(setCurrentChannel(channel));
     history(`/room/${channel.id}`);
+  };
+
+  const handleDeleteChannel = (channelId) => {
+    db.collection("channels").doc(channelId).delete();
   };
 
   const handleCreateChannel = () => {
     const maxNoOfChannels = 16;
     if (channels?.length < maxNoOfChannels) {
-      createChannel(
-        prompt("Enter channel name:").substring(0, 16).toLowerCase()
-      );
+      const name = prompt("Enter channel name:").substring(0, 16).toLowerCase();
+      db.collection("channels").add({
+        name,
+        timestamp: firestore.FieldValue.serverTimestamp(),
+      });
     } else {
       alert(`Max number of channels is ${maxNoOfChannels} channels.`);
     }
@@ -119,8 +126,8 @@ const Sidebar = () => {
               key={channel.id}
               id={channel.id}
               title={channel.name}
-              onDelete={() => deleteChannel(channel.id)}
-              onClick={() => handleChatClick(channel)}
+              onDelete={() => handleDeleteChannel(channel.id)}
+              onClick={() => handleChannelClick(channel)}
             />
           ))}
       </section>
