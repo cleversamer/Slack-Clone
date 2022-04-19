@@ -32,6 +32,17 @@ const Sidebar = () => {
     history(`/room/${channel.id}`);
   };
 
+  const handleCreateChannel = () => {
+    const maxNoOfChannels = 16;
+    if (channels?.length < maxNoOfChannels) {
+      createChannel(
+        prompt("Enter channel name:").substring(0, 16).toLowerCase()
+      );
+    } else {
+      alert(`Max number of channels is ${maxNoOfChannels} channels.`);
+    }
+  };
+
   return (
     <aside className="sidebar">
       <header className="sidebar__header">
@@ -98,7 +109,7 @@ const Sidebar = () => {
           <SidebarOption
             Icon={Add}
             title="Add channel"
-            onClick={() => createChannel("test")}
+            onClick={() => handleCreateChannel()}
           />
         )}
 
