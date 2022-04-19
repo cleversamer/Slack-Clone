@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import db from "../../firebase";
 import { selectCurrentChannel } from "../../store/channels";
+import Message from "../message";
 import { StarBorderOutlined, InfoOutlined } from "@mui/icons-material";
 import "./index.css";
 
@@ -48,9 +49,11 @@ const Chat = () => {
         </div>
       </header>
 
-      {messages?.map((message) => (
-        <p>{message.message}</p>
-      ))}
+      <main className="chat__messages">
+        {messages?.map((message) => (
+          <Message key={message.id} message={message} />
+        ))}
+      </main>
     </section>
   );
 };

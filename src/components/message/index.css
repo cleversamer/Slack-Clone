@@ -1,0 +1,26 @@
+.message {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  color: #111;
+  font-size: 15px;
+}
+
+.message__avatar {
+  height: 50px;
+  width: 50px;
+  object-fit: contain;
+  border-radius: 2px;
+  margin-right: 10px;
+}
+
+.message__username {
+  margin-bottom: 3px;
+}
+
+.message__timestamp {
+  color: #808080;
+  font-size: 12px;
+  font-weight: 300;
+  margin-left: 3px;
+}
