@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import db from "./firebase";
@@ -31,7 +31,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="app">
+    <Fragment>
       <Header />
 
       <div className="app__body">
@@ -50,7 +50,7 @@ const App = () => {
           />
         </Routes>
       </div>
-    </div>
+    </Fragment>
   );
 };
 

@@ -3,7 +3,9 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import db from "../../firebase";
 import { selectCurrentChannel } from "../../store/channels";
-import Message from "../message";
+import { selectUser } from "../../store/user";
+import ChatInput from "./ChatInput";
+import Messages from "./Messages";
 import { StarBorderOutlined, InfoOutlined } from "@mui/icons-material";
 import "./index.css";
 
@@ -11,6 +13,7 @@ const Chat = () => {
   const history = useNavigate();
   const { roomId } = useParams();
   const chat = useSelector(selectCurrentChannel);
+  const user = useSelector(selectUser);
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
@@ -49,11 +52,9 @@ const Chat = () => {
         </div>
       </header>
 
-      <main className="chat__messages">
-        {messages?.map((message) => (
-          <Message key={message.id} message={message} />
-        ))}
-      </main>
+      <Messages messages={messages} user={user} />
+
+      <ChatInput channelId={chat?.id} />
     </section>
   );
 };

@@ -1,16 +1,16 @@
 import React from "react";
 import "./index.css";
 
-const Message = ({ message }) => {
-  const getAvatarUrl = () => {
-    return message.userAvatar;
+const Message = ({ message, sender }) => {
+  const getClasses = () => {
+    return "message" + (sender ? " message--sender" : "");
   };
 
   return (
-    <article className="message">
+    <article className={getClasses()}>
       <img
         className="message__avatar clickable"
-        src={getAvatarUrl()}
+        src={message.userAvatar}
         alt={message.user.name || "avatar"}
       />
 
@@ -18,11 +18,11 @@ const Message = ({ message }) => {
         <h4 className="message__username">
           {message.user.name}{" "}
           <span className="message__timestamp">
-            {new Date(message.timestamp.toDate()).toUTCString()}
+            {new Date(message?.timestamp?.toDate())?.toUTCString()}
           </span>
         </h4>
 
-        <p>{message.message}</p>
+        <p className="message__text">{message.message}</p>
       </div>
     </article>
   );
