@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { selectChannels, setCurrentChannel } from "../../store/channels";
 import {
   FiberManualRecord,
   Create,
@@ -15,21 +17,20 @@ import {
   Add,
 } from "@mui/icons-material";
 import SidebarOption from "./SidebarOption";
-import { onSnapshot } from "firebase/firestore";
-import { createChannel, deleteChannel, channelsQuery } from "../../firebase";
+import { createChannel, deleteChannel } from "../../firebase";
 import "./index.css";
 
 const Sidebar = () => {
   const history = useNavigate();
-  const [channels, setChannels] = useState([]);
+  const dispatch = useDispatch();
+  const channels = useSelector(selectChannels);
   const [showChannels, setShowChannels] = useState(false);
   const [showLessNavs, setShowLessNavs] = useState(false);
 
-  useEffect(() => {
-    onSnapshot(channelsQuery, (snapshot) => {
-      setChannels(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
-    });
-  }, []);
+  const handleChatClick = (channel) => {
+    dispatch(setCurrentChannel(channel));
+    history(`/room/${channel.id}`);
+  };
 
   return (
     <aside className="sidebar">
@@ -108,7 +109,7 @@ const Sidebar = () => {
               id={channel.id}
               title={channel.name}
               onDelete={() => deleteChannel(channel.id)}
-              onClick={() => history(`/room/${channel.id}`)}
+              onClick={() => handleChatClick(channel)}
             />
           ))}
       </section>

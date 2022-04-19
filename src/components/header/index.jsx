@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Avatar } from "@mui/material";
 import { AccessTime, Search, HelpOutline } from "@mui/icons-material";
 import "./index.css";
@@ -14,11 +15,13 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header__left">
-        <Avatar
-          className="header__avatar clickable"
-          src="https://avatars.githubusercontent.com/u/73291969?v=4"
-          alt="avatar"
-        />
+        <Link to="/">
+          <Avatar
+            className="header__avatar clickable"
+            src="https://avatars.githubusercontent.com/u/73291969?v=4"
+            alt="avatar"
+          />
+        </Link>
 
         <AccessTime className="header__icon header__icon--left clickable" />
       </div>

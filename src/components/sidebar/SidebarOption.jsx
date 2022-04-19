@@ -3,8 +3,17 @@ import { IconButton } from "@mui/material";
 import { Delete } from "@mui/icons-material";
 
 const SidebarOption = ({ id, Icon, title, onClick, onDelete }) => {
+  const handleClick = () => {
+    if (typeof onClick === "function") {
+      onClick();
+    }
+  };
+
   return (
-    <article onClick={() => onClick()} className="sidebar__option clickable">
+    <article
+      onClick={() => handleClick()}
+      className="sidebar__option clickable"
+    >
       {Icon && <Icon className="sidebar__option-icon" />}
       {Icon ? (
         <h4 className="sidebar__option-heading">{title}</h4>
