@@ -14,6 +14,7 @@
 }
 
 .message--sender {
+  background-color: #ddd;
   margin-right: 0;
   margin-left: auto;
 }
@@ -25,6 +26,7 @@
   border-radius: 2px;
   margin-right: 10px;
   margin-bottom: auto;
+  font-size: 12px;
 }
 
 .message__username {

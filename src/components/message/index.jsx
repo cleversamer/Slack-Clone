@@ -3,7 +3,26 @@ import "./index.css";
 
 const Message = ({ message, sender }) => {
   const getClasses = () => {
-    return "message" + (sender ? " message--sender" : "");
+    return "message message--" + (sender ? "sender" : "receiver");
+  };
+
+  const parseTimetamp = () => {
+    const newDate = message?.timestamp?.toDate();
+
+    let hours = newDate?.getHours();
+
+    let mins = newDate?.getMinutes();
+    if (mins < 10) {
+      mins = `0${mins}`;
+    }
+
+    let meridiem = "AM";
+    if (hours > 12) {
+      meridiem = "PM";
+      hours -= 12;
+    }
+
+    return !hours || !mins ? "Now" : `${hours}:${mins} ${meridiem}`;
   };
 
   return (
@@ -17,9 +36,7 @@ const Message = ({ message, sender }) => {
       <div className="message__info">
         <h4 className="message__username">
           {message.user.name}{" "}
-          <span className="message__timestamp">
-            {new Date(message?.timestamp?.toDate())?.toUTCString()}
-          </span>
+          <span className="message__timestamp">{parseTimetamp()}</span>
         </h4>
 
         <p className="message__text">{message.message}</p>

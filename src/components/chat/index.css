@@ -46,7 +46,7 @@
   align-items: center;
   padding: 5px 10px;
   box-sizing: border-box;
-  border-top: 1px solid lightgrey;
+  border-top: 1px solid #d3d3d3;
 }
 
 .chat__input-box {
@@ -56,5 +56,25 @@
   margin-left: 10px;
   color: #111;
   font-size: 14px;
+  font-weight: 500;
+}
+
+.chat__disabled {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  border: 1px solid lightgrey;
+  background-color: #eee;
+}
+
+.chat__disabled-heading {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.chat__important {
   font-weight: 500;
 }

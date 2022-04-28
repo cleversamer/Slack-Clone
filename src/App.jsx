@@ -17,8 +17,6 @@ const App = () => {
   const user = useSelector(selectUser);
 
   useEffect(() => {
-    // User auth here ...
-
     db.collection("channels")
       .orderBy("timestamp", "asc")
       .onSnapshot((snapshot) => {
