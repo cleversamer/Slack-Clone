@@ -4,7 +4,7 @@ Slack clone with React & Firebase
 
 ## 🔴 Live Demo
 
-Not live yet...
+[Click here...](https://samer-slack.firebaseapp.com/)
 
 ## Description
 
@@ -17,6 +17,14 @@ Slack clone with React & Firebase
 - React
 - React DOM
 - React Router DOM
+- Firebase
+- MaterialUI Core
+- MaterialUI Icons
+- React Redux
+- Redux
+- ReduxJS Toolkit
+- Redux Thunk
+- Reselect
 
 ### Installing
 
@@ -28,7 +36,7 @@ Slack clone with React & Firebase
 
 ## Help
 
-- No issues detected yet...
+- If you face an issue when installing project dependencies, please use `npm install --force` to install them.
 
 ## Authors
 
