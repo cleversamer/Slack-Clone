@@ -2,7 +2,7 @@ repo_name: cleversamerr/Slack-Clone
 report_id: 6fb06a77f723d79282d7d47c32ca90bd
 version: 0.1
 repo_type: Public
-timestamp: '2023-12-24T12:44:19+00:00'
+timestamp: '2024-01-05T08:16:22+00:00'
 requested_by: cleversamerr
 provider: github
 branch: main
@@ -16,6 +16,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/6727/css.png
+  detection_source_url: https://github.com/cleversamerr/Slack-Clone
   detection_source: Repo Metadata
 - name: JavaScript
   description: Lightweight, interpreted, object-oriented language with first-class
@@ -26,6 +27,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/1209/javascript.jpeg
+  detection_source_url: https://github.com/cleversamerr/Slack-Clone
   detection_source: Repo Metadata
 - name: React
   description: A JavaScript library for building user interfaces
@@ -77,6 +79,7 @@ tools:
   category: Libraries
   sub_category: State Management Library
   image_url: https://img.stackshare.io/service/5448/13142323.png
+  detection_source_url: https://github.com/cleversamerr/Slack-Clone/blob/main/package.json
   detection_source: package.json
   last_updated_by: Samer A
   last_updated_on: 2022-04-16 13:29:44.000000000 Z
@@ -89,6 +92,7 @@ tools:
   category: Libraries
   sub_category: State Management Library
   image_url: https://img.stackshare.io/service/7757/13142323.png
+  detection_source_url: https://github.com/cleversamerr/Slack-Clone/blob/main/package.json
   detection_source: package.json
   last_updated_by: Samer A
   last_updated_on: 2022-04-16 13:29:44.000000000 Z
@@ -100,6 +104,7 @@ tools:
   category: Application Hosting
   sub_category: Realtime Backend / API
   image_url: https://img.stackshare.io/service/116/cZLxNFZS.jpg
+  detection_source_url: https://github.com/cleversamerr/Slack-Clone/blob/main/package.json
   detection_source: package.json
   last_updated_by: Samer A
   last_updated_on: 2022-04-19 13:27:51.000000000 Z
@@ -111,6 +116,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Version Control System
   image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/cleversamerr/Slack-Clone
   detection_source: Repo Metadata
 - name: npm
   description: The package manager for JavaScript.
@@ -120,6 +126,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Front End Package Manager
   image_url: https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png
+  detection_source_url: https://github.com/cleversamerr/Slack-Clone/blob/main/package.json
   detection_source: package.json
   last_updated_by: Samer A
   last_updated_on: 2022-04-14 15:20:00.000000000 Z
